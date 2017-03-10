@@ -1,0 +1,13 @@
+
+
+div.FixedHeader_Cloned th,
+div.FixedHeader_Cloned td {
+	/*background-color: white !important;*/
+}
+
+div.FixedHeader_Cloned th{ white-space:nowrap;}
+div.FixedHeader_Cloned th.sorting_asc{color:#fff;}
+div.FixedHeader_Cloned th.sorting_desc{color:#fff;}
+div.FixedHeader_Cloned th.sorting_disabled{color:#fff;}
+
+/* div.FixedHeader_Cloned th{overflow: auto; clear: both; width: 4145px;border-collapse: separate;} */

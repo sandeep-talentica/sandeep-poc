@@ -1,0 +1,26 @@
+create database emp;
+
+create table emp.tbl_employee(
+	empid varchar(50) DEFAULT NULL,
+	name varchar(50) DEFAULT NULL,
+	designation varchar(50) DEFAULT NULL,
+	primary key (empid)
+);
+
+GRANT SELECT, UPDATE, INSERT, CREATE, DELETE, ALTER, INDEX  ON emp.tbl_employee TO 'idxappuser'@'%';
+flush privileges;
+
+
+
+insert into `tbl_employee` (`empid`, `name`, `designation`) values('1','Anuraj','SE');
+insert into `tbl_employee` (`empid`, `name`, `designation`) values('2','Sandeep','SE');
+insert into `tbl_employee` (`empid`, `name`, `designation`) values('3','Ankur','SSE');
+insert into `tbl_employee` (`empid`, `name`, `designation`) values('4','Pankaj','SDM');
+insert into `tbl_employee` (`empid`, `name`, `designation`) values('5','Aditya','SE');
+insert into `tbl_employee` (`empid`, `name`, `designation`) values('6','Pravin','SE');
+insert into `tbl_employee` (`empid`, `name`, `designation`) values('7','Narendra','SSE');
+insert into `tbl_employee` (`empid`, `name`, `designation`) values('8','Anuj','SE');
+insert into `tbl_employee` (`empid`, `name`, `designation`) values('9','Vaibhav','SE');
+insert into `tbl_employee` (`empid`, `name`, `designation`) values('10','Saket','SE');
+insert into `tbl_employee` (`empid`, `name`, `designation`) values('11','Bala','SM');
+insert into `tbl_employee` (`empid`, `name`, `designation`) values('12','Krishna','SE');

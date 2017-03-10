@@ -5,7 +5,7 @@ define([], function() {
 
 	var app = {
 		env : 'dev',
-		hostname:'testanuraj',
+		hostname:'sandeep',
 		context : function() {
 			var rootcontext = '';
 			if (this.env == 'prod') {

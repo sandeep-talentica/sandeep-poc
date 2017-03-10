@@ -1,3 +1,4 @@
+
 package com.emp.config;
 
 import java.util.Locale;
@@ -19,30 +20,34 @@ import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import com.emp.config.loging.RequestInterceptor;
 
 @Configuration
 @EnableWebMvc
 @ComponentScan
 public class MvcConfig extends WebMvcConfigurerAdapter {
-	
+
 	@Autowired
 	protected ServletContext servletContext;
+	@Autowired
+	private RequestInterceptor executeTimeInterceptor;
 
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
+
 		registry.addViewController("/").setViewName("index");
 		registry.addViewController("/index").setViewName("index");
-
-	}	
+	}
 
 	@Override
-	public void configureDefaultServletHandling(
-			DefaultServletHandlerConfigurer configurer) {
+	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+
 		configurer.enable();
 	}
 
 	@Bean
 	public ViewResolver viewResolver() {
+
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
 		viewResolver.setPrefix("/");
 		viewResolver.setSuffix(".html");
@@ -51,12 +56,14 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
+
+		registry.addInterceptor(executeTimeInterceptor);
 		registry.addInterceptor(localeChangeInterceptor());
 	}
 
-
 	@Bean
 	public LocaleResolver localeResolver() {
+
 		SessionLocaleResolver slr = new SessionLocaleResolver();
 		slr.setDefaultLocale(Locale.US);
 		return slr;
@@ -64,6 +71,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 
 	@Bean
 	public LocaleChangeInterceptor localeChangeInterceptor() {
+
 		LocaleChangeInterceptor lci = new LocaleChangeInterceptor();
 		lci.setParamName("lang");
 		return lci;
